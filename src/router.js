@@ -7,7 +7,7 @@ import AppTaskFull from "./components/AppTaskFull.vue";
 import NotFoundView from "./views/NotFoundView.vue";
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/taskmanager/'),
   routes: [
     {
       path: '/home',

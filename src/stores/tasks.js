@@ -7,9 +7,11 @@ export const useTasksStore = defineStore('taskStore', () => {
   const activeTasks = computed(() => tasks.value.filter((task) => task.status == 'active'));
   const notActiveTasks = computed(() => tasks.value.filter((task) => task.status != 'active'));
 
+
+
   async function readFromDb() {
     const response = await fetch(
-      'https://vue-courseworkthree-default-rtdb.europe-west1.firebasedatabase.app/tasks.json',
+      'https://vue-tasks-b0233-default-rtdb.asia-southeast1.firebasedatabase.app/tasks.json',
       {
         method: 'GET',
       }
@@ -26,7 +28,7 @@ export const useTasksStore = defineStore('taskStore', () => {
 
   async function writeToDb(task) {
     const response = await fetch(
-      'https://vue-courseworkthree-default-rtdb.europe-west1.firebasedatabase.app/tasks.json',
+      'https://vue-tasks-b0233-default-rtdb.asia-southeast1.firebasedatabase.app/tasks.json',
       {
         method: 'POST',
         headers: {
@@ -40,7 +42,7 @@ export const useTasksStore = defineStore('taskStore', () => {
 
   async function reWriteToDb(task) {
     const response = await fetch(
-      `https://vue-courseworkthree-default-rtdb.europe-west1.firebasedatabase.app/tasks/${task.id}.json`,
+      `https://vue-tasks-b0233-default-rtdb.asia-southeast1.firebasedatabase.app/tasks/${task.id}.json`,
       {
         method: 'PUT',
         headers: {
@@ -54,7 +56,7 @@ export const useTasksStore = defineStore('taskStore', () => {
 
   async function deleteFromDb(id) {
     const response = await fetch(
-      `https://vue-courseworkthree-default-rtdb.europe-west1.firebasedatabase.app/tasks/${id}.json`,
+      `https://vue-tasks-b0233-default-rtdb.asia-southeast1.firebasedatabase.app/tasks/${id}.json`,
       {
         method: 'DELETE',
       }
